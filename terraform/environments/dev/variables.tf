@@ -51,9 +51,3 @@ variable "datadog_namespace" {
   type        = string
   default     = "datadog"
 }
-
-# Note: Datadog API keys are managed in configs/config.yaml
-# and passed to Helm during deployment, not via Terraform
-
-# Note: All Datadog configuration is now managed in configs/config.yaml
-# Terraform only handles infrastructure (cluster, nodes, namespaces) 
