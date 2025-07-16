@@ -2,6 +2,7 @@
 *.tfstate
 *.tfstate.*
 .terraform/
+.terraform.lock.hcl
 terraform.tfvars
 
 # Datadog configuration (contains secrets)
