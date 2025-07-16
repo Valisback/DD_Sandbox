@@ -1,0 +1,16 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+
+# Datadog configuration (contains secrets)
+configs/config.yaml
+configs/values.yaml
+
+# Kubernetes secrets (contains API keys)
+kubernetes/datadog/datadog-secret.yaml
+
+# OS
+.DS_Store
+Thumbs.db 

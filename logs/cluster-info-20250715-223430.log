@@ -1,0 +1,23 @@
+Datadog Sandbox Cluster Information
+===================================
+Deployment Date: Tue Jul 15 22:34:30 EDT 2025
+Cluster Name: dd-sandbox
+
+Cluster Info:
+Kubernetes control plane is running at https://127.0.0.1:51903
+CoreDNS is running at https://127.0.0.1:51903/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+Nodes:
+NAME                     STATUS   ROLES           AGE     VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
+dd-sandbox-cluster       Ready    control-plane   2m16s   v1.28.3   192.168.49.2   <none>        Ubuntu 22.04.5 LTS   6.10.14-linuxkit   containerd://1.7.24
+dd-sandbox-cluster-m02   Ready    <none>          94s     v1.28.3   192.168.49.3   <none>        Ubuntu 22.04.5 LTS   6.10.14-linuxkit   containerd://1.7.24
+dd-sandbox-cluster-m03   Ready    <none>          86s     v1.28.3   192.168.49.4   <none>        Ubuntu 22.04.5 LTS   6.10.14-linuxkit   containerd://1.7.24
+
+Datadog Pods:
+NAME                                           READY   STATUS    RESTARTS   AGE   IP           NODE                     NOMINATED NODE   READINESS GATES
+datadog-agent-cluster-agent-76d656d886-tclpf   1/1     Running   0          82s   10.244.2.3   dd-sandbox-cluster-m03   <none>           <none>
+datadog-agent-hzxbc                            5/5     Running   0          82s   10.244.2.2   dd-sandbox-cluster-m03   <none>           <none>
+datadog-agent-l2b5c                            5/5     Running   0          82s   10.244.1.2   dd-sandbox-cluster-m02   <none>           <none>
+datadog-agent-p42nz                            5/5     Running   0          82s   10.244.0.6   dd-sandbox-cluster       <none>           <none>

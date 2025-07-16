@@ -1,0 +1,75 @@
+# Datadog Sandbox Configuration
+# This file contains simple, user-friendly parameters that are common across all environments
+
+# Global Datadog Configuration
+datadog:
+  # Core credentials - REQUIRED
+  api_key: ""  # Your Datadog API key
+  app_key: ""  # Your Datadog Application key
+  site: "datadoghq.com"  # Datadog site (datadoghq.com, datadoghq.eu, us3.datadoghq.com, etc.)
+  
+  # Global tags applied to all components
+  tags:
+    - "env:sandbox"
+    - "team:platform"
+    - "project:dd-sandbox"
+  
+  # Feature flags - enable/disable monitoring capabilities
+  features:
+    logs_enabled: true
+    apm_enabled: true
+    network_monitoring_enabled: true
+    usm_enabled: true
+    live_processes_enabled: true
+    
+  # APM Configuration
+  apm:
+    instrumentation_enabled: true
+    # Supported languages for auto-instrumentation
+    languages:
+      - java
+      - python
+      - nodejs
+      - dotnet
+    # DD trace versions (optional, leave empty for latest)
+    trace_versions:
+      java: ""
+      python: ""
+      nodejs: ""
+      dotnet: ""
+
+# Kubernetes specific settings
+kubernetes:
+  cluster_name: "dd-sandbox"
+  namespace: "datadog"
+  
+  # Log collection settings
+  logs:
+    collect_all_containers: true
+    
+  # Security monitoring
+  security:
+    # Application Security Management
+    threats_enabled: true
+    sca_enabled: true  # Software Composition Analysis
+    iast_enabled: true  # Interactive Application Security Testing
+    
+    # Cloud Workload Security
+    cws_enabled: true
+    
+    # Compliance monitoring
+    cspm_enabled: true
+    
+    # Software Bill of Materials
+    sbom_enabled: true
+
+# Future VM configurations (for expansion)
+vms:
+  enabled: false
+  # VM-specific configurations will be added here when needed
+
+# Environment metadata
+environment:
+  name: "sandbox"
+  description: "Datadog monitoring sandbox environment"
+  owner: "platform-team" 

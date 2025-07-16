@@ -1,0 +1,44 @@
+Final Cluster State Before Cleanup
+==================================
+Cleanup Date: Tue Jul 15 17:12:59 EDT 2025
+
+Cluster Info:
+Kubernetes control plane is running at https://127.0.0.1:63409
+CoreDNS is running at https://127.0.0.1:63409/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+Nodes:
+NAME                     STATUS   ROLES           AGE   VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
+dd-sandbox-cluster       Ready    control-plane   50m   v1.28.3   192.168.49.2   <none>        Ubuntu 22.04.5 LTS   6.10.14-linuxkit   containerd://1.7.24
+dd-sandbox-cluster-m02   Ready    <none>          49m   v1.28.3   192.168.49.3   <none>        Ubuntu 22.04.5 LTS   6.10.14-linuxkit   containerd://1.7.24
+dd-sandbox-cluster-m03   Ready    <none>          49m   v1.28.3   192.168.49.4   <none>        Ubuntu 22.04.5 LTS   6.10.14-linuxkit   containerd://1.7.24
+
+All Pods:
+NAMESPACE              NAME                                           READY   STATUS             RESTARTS        AGE     IP             NODE                     NOMINATED NODE   READINESS GATES
+datadog                datadog-agent-b4rzn                            1/2     CrashLoopBackOff   5 (2m5s ago)    5m10s   10.244.1.8     dd-sandbox-cluster-m02   <none>           <none>
+datadog                datadog-agent-cluster-agent-7996b4db48-wcqt2   1/1     Running            0               5m10s   10.244.1.7     dd-sandbox-cluster-m02   <none>           <none>
+datadog                datadog-agent-g9rsq                            1/2     CrashLoopBackOff   5 (2m19s ago)   5m9s    10.244.2.6     dd-sandbox-cluster-m03   <none>           <none>
+datadog                datadog-agent-l7qvb                            1/2     CrashLoopBackOff   5 (106s ago)    5m9s    10.244.0.9     dd-sandbox-cluster       <none>           <none>
+kube-system            coredns-5dd5756b68-trcsx                       1/1     Running            0               49m     10.244.0.3     dd-sandbox-cluster       <none>           <none>
+kube-system            etcd-dd-sandbox-cluster                        1/1     Running            0               50m     192.168.49.2   dd-sandbox-cluster       <none>           <none>
+kube-system            kindnet-66q7k                                  1/1     Running            0               49m     192.168.49.3   dd-sandbox-cluster-m02   <none>           <none>
+kube-system            kindnet-8zpdl                                  1/1     Running            0               49m     192.168.49.4   dd-sandbox-cluster-m03   <none>           <none>
+kube-system            kindnet-dghrc                                  1/1     Running            0               49m     192.168.49.2   dd-sandbox-cluster       <none>           <none>
+kube-system            kube-apiserver-dd-sandbox-cluster              1/1     Running            0               50m     192.168.49.2   dd-sandbox-cluster       <none>           <none>
+kube-system            kube-controller-manager-dd-sandbox-cluster     1/1     Running            0               50m     192.168.49.2   dd-sandbox-cluster       <none>           <none>
+kube-system            kube-proxy-5qx5q                               1/1     Running            0               49m     192.168.49.3   dd-sandbox-cluster-m02   <none>           <none>
+kube-system            kube-proxy-gcpxn                               1/1     Running            0               49m     192.168.49.2   dd-sandbox-cluster       <none>           <none>
+kube-system            kube-proxy-hhp6r                               1/1     Running            0               49m     192.168.49.4   dd-sandbox-cluster-m03   <none>           <none>
+kube-system            kube-scheduler-dd-sandbox-cluster              1/1     Running            0               50m     192.168.49.2   dd-sandbox-cluster       <none>           <none>
+kube-system            metrics-server-5749f6cc7d-g2zf2                1/1     Running            0               49m     10.244.0.2     dd-sandbox-cluster       <none>           <none>
+kube-system            storage-provisioner                            1/1     Running            0               49m     192.168.49.2   dd-sandbox-cluster       <none>           <none>
+kubernetes-dashboard   dashboard-metrics-scraper-7fd5cb4ddc-rqcvb     1/1     Running            0               49m     10.244.0.5     dd-sandbox-cluster       <none>           <none>
+kubernetes-dashboard   kubernetes-dashboard-8694d4445c-wnmh2          1/1     Running            0               49m     10.244.0.4     dd-sandbox-cluster       <none>           <none>
+
+Datadog Pods:
+NAME                                           READY   STATUS             RESTARTS        AGE     IP           NODE                     NOMINATED NODE   READINESS GATES
+datadog-agent-b4rzn                            1/2     CrashLoopBackOff   5 (2m5s ago)    5m10s   10.244.1.8   dd-sandbox-cluster-m02   <none>           <none>
+datadog-agent-cluster-agent-7996b4db48-wcqt2   1/1     Running            0               5m10s   10.244.1.7   dd-sandbox-cluster-m02   <none>           <none>
+datadog-agent-g9rsq                            1/2     CrashLoopBackOff   5 (2m19s ago)   5m9s    10.244.2.6   dd-sandbox-cluster-m03   <none>           <none>
+datadog-agent-l7qvb                            1/2     CrashLoopBackOff   5 (106s ago)    5m9s    10.244.0.9   dd-sandbox-cluster       <none>           <none>

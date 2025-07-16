@@ -1,0 +1,62 @@
+# Datadog Agent Values File
+# Generated from config.yaml - DO NOT EDIT MANUALLY
+# This file matches the Datadog Helm chart specification
+
+datadog:
+  site: "{{ .datadog.site }}"
+  clusterName: "{{ .kubernetes.cluster_name }}"
+  apiKeyExistingSecret: "datadog-secret"
+
+  kubelet:
+    tlsVerify: false
+    
+  # Set hostname from Kubernetes node name
+  env:
+    - name: DD_HOSTNAME
+      valueFrom:
+        fieldRef:
+          fieldPath: spec.nodeName
+  
+  tags: {{ .datadog.tags | toYaml | nindent 4 }}
+
+  apm:
+    instrumentation:
+      enabled: {{ .datadog.features.apm_enabled }}
+      targets:
+        - name: "default-target"
+          ddTraceVersions:
+            java: "{{ .datadog.apm.trace_versions.java | default "1" }}"
+            python: "{{ .datadog.apm.trace_versions.python | default "3" }}"
+            js: "{{ .datadog.apm.trace_versions.nodejs | default "5" }}"
+            php: "1"
+            dotnet: "{{ .datadog.apm.trace_versions.dotnet | default "3" }}"
+  logs:
+    enabled: {{ .datadog.features.logs_enabled }}
+    containerCollectAll: {{ .kubernetes.logs.collect_all_containers }}
+  asm:
+    threats:
+      enabled: {{ .kubernetes.security.threats_enabled }}
+    sca:
+      enabled: {{ .kubernetes.security.sca_enabled }}
+    iast:
+      enabled: {{ .kubernetes.security.iast_enabled }}
+  securityAgent:
+    runtime:
+      enabled: {{ .kubernetes.security.cws_enabled }}
+    compliance:
+      enabled: {{ .kubernetes.security.cspm_enabled }}
+  sbom:
+    containerImage:
+      enabled: {{ .kubernetes.security.sbom_enabled }}
+    host:
+      enabled: {{ .kubernetes.security.sbom_enabled }}
+  serviceMonitoring:
+    enabled: {{ .datadog.features.usm_enabled}}
+  networkMonitoring:
+    enabled: {{ .datadog.features.network_monitoring_enabled }}
+  processAgent:
+    processCollection: {{ .datadog.features.live_processes_enabled }}
+  
+  clusterAgent:
+    replicas: 2
+    createPodDisruptionBudget: true

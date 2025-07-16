@@ -1,0 +1,19 @@
+# Terraform Variables Override Template
+# Copy this file to terraform.tfvars and customize only what you need
+# Most values have sensible defaults in variables.tf
+# The terraform.tfvars file is gitignored for security
+
+# NOTE: All Datadog configuration is now in configs/config.yaml, not here!
+# Terraform only manages infrastructure (cluster, nodes, namespaces)
+
+# OPTIONAL: Uncomment and modify only if you want to change infrastructure defaults
+# See variables.tf for all available options and their default values
+
+# Resource allocation (adjust based on your system resources)
+# node_memory   = "4096"  # Default: 4GB per node = 12GB total  
+# node_cpus     = "2"     # Default: 2 CPUs per node = 6 CPUs total
+# node_disk_size = "20g"  # Default: 20GB per node
+
+# Cluster customization
+# cluster_name = "dd-sandbox-cluster"  # Default
+# minikube_driver = "docker"           # Default 
